@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import pickle
 import numpy as np
-from fpdf import FPDF
 import base64
 
 # --- PAGE CONFIG ---
@@ -111,8 +110,6 @@ if st.button("🔍 START SCAN"):
         for i in range(7): sc_cols[i].markdown("❤️" if i < score else "🤍")
         st.info(f"Met **{score} out of 7** healthy cardiovascular markers.")
         
-        # PDF Export (Same logic as before)
-        st.download_button("📥 Export PDF Report", "pdf_content_placeholder", "Report.pdf")
-        st.markdown("</div>", unsafe_allow_html=True)
     except:
+
         st.warning("Please ensure 'heart_model.pkl' is in the project folder.")
